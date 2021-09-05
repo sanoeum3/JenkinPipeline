@@ -9,7 +9,9 @@ pipeline {
         }
 		stage('Build Project') {
             steps {
-				bat 'cd azure-vote/' 
+				dir("azure-vote") {
+					sh "pwd"
+				}
                 bat 'mvn clean install'
             }
         }
