@@ -1,5 +1,5 @@
 FROM openjdk:8-jdk-alpine
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+EXPOSE 8080
+ARG JAR_FILE=target/example.smallest-0.0.1-SNAPSHOT.war
+ADD ${JAR_FILE} app.war
+ENTRYPOINT ["java","-jar","/app.war"]
