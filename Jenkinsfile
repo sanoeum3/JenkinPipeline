@@ -7,12 +7,6 @@ pipeline {
                 echo "$GIT_BRANCH"
             }
         }
-		stage('Build Project') {
-            steps {
-				bat 'cd azure-vote'
-                bat 'mvn clean install'
-            }
-        }
         stage('Docker Build') {
             steps {
 				bat 'docker images -a'
